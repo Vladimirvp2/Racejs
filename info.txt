@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/49182862/preset-files-are-not-allowed-to-export-objects
+
+npm uninstall --save babel-loader
+npm uninstall --save @babel/core
+npm install --save-dev babel-loader@7^

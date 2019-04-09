@@ -1,0 +1,224 @@
+.inline {
+    display: inline-block;
+}
+
+.center {
+	padding: 10px;
+	width: 460px;
+}
+
+.meter-wrap {
+    display: inline-block;
+    position: relative;
+    width:200px;
+    height:200px;
+	bottom: 40px;
+	left: 22px;
+	background-image: url("./../img/speed_bg.png");
+	background-size: contain;
+}
+
+.tachometer-wrap {
+    display: inline-block;
+    position: relative;
+	right: 28px;
+	bottom: 40px;	
+    width:200px;
+    height:200px;
+	background-image: url("./../img/tachometer_bg.png");
+
+	background-size: contain;
+}
+
+.gear-indicator-wrap {
+    display: inline-block;
+    position: relative;
+	right: 4px;
+	bottom: 30px;	
+    width:60px;
+    height:60px;
+	background-image: url("./../img/gear_bg.png");	
+	background-size: contain;
+}
+
+.gear-text {
+    position: absolute;
+	right: 24px;
+	top: 18px;
+	font-size: 1.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(88, 88, 82);
+}
+
+.prompt-text {
+	font-size: 1.8em;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(230, 230, 230);
+	text-align: center;	
+}
+
+.fuel {
+  padding: 10px;
+    position: absolute;
+	left: 70px;
+	top: 110px;
+	font-size: 0.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(88, 88, 82);	
+}
+
+.distance {
+	padding: 10px;
+    position: absolute;
+	left: 70px;
+	top: 122px;
+	font-size: 0.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(88, 88, 82);	
+}
+
+.needle {
+	display: inline-block;
+	width: 5px;
+	height: 70px;
+	background: #525252;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 100%;
+	border-top-right-radius: 100%;
+	left: 0;
+	right: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: -20px auto auto auto;
+	/*-webkit-animation: move 7s infinite; */
+	transform: rotate(-20deg);
+	transform-origin: bottom;
+}
+
+.inner-meter {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	background: #fff;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+}
+
+/* Animation when the ignition is turned on */
+.elementToFadeIn {
+    -webkit-animation: fadein 1.5s linear forwards;
+    animation: fadein 1.5s linear forwards;
+}
+
+@-webkit-keyframes fadein {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0.9; } 
+}
+
+@keyframes fadein {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0.9; } 
+}
+
+/* Animation when the ignition is turned off */
+.elementToFadeOut {
+    -webkit-animation: fadeout 1.5s linear forwards;
+    animation: fadeout 1.5s linear forwards;
+}
+
+@-webkit-keyframes fadeout {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.50; }
+    100% { opacity: 0.1; } 
+}
+
+@keyframes fadeout {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0.1; } 
+}
+
+.button-ignition{
+	background-color: white;
+	color: black;
+	border: 2px solid #e7e7e7;
+	font-size: 1.2em;
+	margin: 0 auto;
+	padding: 12px;
+	position: relative;
+	display: block;
+	max-width: 300px;
+	margin: auto; 
+	border-radius: 5px;
+}
+
+.score {
+	color: black;
+	text-align: center;
+	font-size: 1.2em;
+	margin: 0 auto;
+	padding: 12px;
+	position: relative;
+	bottom: 30px;
+   
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(88, 88, 82);
+	text-shadow: 1px 1px #000000;   
+}
+
+
+.button-ignition:hover {background-color: #e7e7e7;}
+
+
+.dashboard-container {
+	opacity: 0.1;
+}
+
+body {
+	background-image: url("./../img/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+h1 {
+	color: black;
+	text-align: center;
+	font-size: 2.0em;
+	margin: 0 auto;
+	padding: 12px;
+	position: relative;
+   
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(88, 88, 82);
+	text-shadow: 1px 1px rgb(88, 88, 82);
+}
+
+/* Popup window styles */
+.customPopupStyleText {
+	font-size  : 1.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 10px;
+}
+
+
+.customPopupHeaderText {
+    font-size  : 2.0em;
+	color: red;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 10px;		
+}
+
+.buttonStyle {
+    font-size : 1.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 10px;		
+}
+	
