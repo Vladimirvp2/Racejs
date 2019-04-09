@@ -4,7 +4,7 @@ import Events from './../enums/Events';
 import SpeedRange from './../enums/SpeedRange';
 
 import {MAX_SPEED, 
-		SPEED_ADD_EACH_UPDATE, SPEED_SUB_EACH_UPDATE, SPEED_CHANGE_EACH_UPDATE,	SPEED_IGNITION_OFF_DECREASE, 
+		SPEED_ADD_EACH_UPDATE, SPEED_SUB_EACH_UPDATE, SPEED_CHANGE_EACH_UPDATE,	SPEED_IGNITION_OFF_DECREASE, SPEED_MIN_GEAR_ON,
 		GEARS, GEAR_SWITCH_TIME,
 		UPDATE_TIME,
 		FUEL, FUEL_CONSUMPTION, FUEL_CONSUMPTION_IDLING,
@@ -241,7 +241,7 @@ class CarData{
 		}
 		// proccess a gear change 
 		if (key == Keys.RIGHT){
-			this.__switchGearUp();
+			this._switchGearUp();
 		}
 		else if (key == Keys.LEFT){
 			this.__switchGearDown();
@@ -314,7 +314,24 @@ class CarData{
 			}
 
 			return false;	
+		}
+
+		/* 
+		 * Check and correct if the speed is less than allowed
+		*/
+		let __limitMinSpeed = () => {
+			if (this.state.gear == 0){
+				if (this.state.speed < 0){
+					this.state.speed = 0;
+				}
+			}
+			else{
+				if ( this.state.speed < SPEED_MIN_GEAR_ON ){
+					this.state.speed += SPEED_ADD_EACH_UPDATE;
+				}			
+			}
 		}	
+
 		// if ignition switched off decrease quickly the speed
 		if (!this.state.ignition){
 			if (this.state.speed > 0){
@@ -340,10 +357,8 @@ class CarData{
 			this.state.speed += SPEED_CHANGE_EACH_UPDATE;
 		}
 		
-		// min speed exceed check
-		if (this.state.speed < 0){
-			this.state.speed = 0;
-		}
+		// min speed exceeds check
+		__limitMinSpeed();
 
 		// update the max speed value
 		if ( this.state.speed > this.state.maxspeed ){
